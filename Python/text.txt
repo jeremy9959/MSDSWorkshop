@@ -1,0 +1,22 @@
+Tokenization is the process of demarcating and possibly classifying sections of a string of input characters. The resulting tokens are then passed on to some other form of processing. The process can be considered a sub-task of parsing input.
+
+For example, in the text string:
+
+    The quick brown fox jumps over the lazy dog
+
+the string isn't implicitly segmented on spaces, as a natural language speaker would do. The raw input, the 43 characters, must be explicitly split into the 9 tokens with a given space delimiter (i.e., matching the string " " or regular expression /\s{1}/).
+
+When a token class represents more than one possible lexeme, the lexer often saves enough information to reproduce the original lexeme, so that it can be used in semantic analysis. The parser typically retrieves this information from the lexer and stores it in the abstract syntax tree. This is necessary in order to avoid information loss in the case where numbers may also be valid identifiers.
+
+Tokens are identified based on the specific rules of the lexer. Some methods used to identify tokens include: regular expressions, specific sequences of characters termed a flag, specific separating characters called delimiters, and explicit definition by a dictionary. Special characters, including punctuation characters, are commonly used by lexers to identify tokens because of their natural use in written and programming languages.
+
+Tokens are often categorized by character content or by context within the data stream. Categories are defined by the rules of the lexer. Categories often involve grammar elements of the language used in the data stream. Programming languages often categorize tokens as identifiers, operators, grouping symbols, or by data type. Written languages commonly categorize tokens as nouns, verbs, adjectives, or punctuation. Categories are used for post-processing of the tokens either by the parser or by other functions in the program.
+
+A lexical analyzer generally does nothing with combinations of tokens, a task left for a parser. For example, a typical lexical analyzer recognizes parentheses as tokens, but does nothing to ensure that each "(" is matched with a ")".
+
+When a lexer feeds tokens to the parser, the representation used is typically an enumerated list of number representations. For example, "Identifier" is represented with 0, "Assignment operator" with 1, "Addition operator" with 2, etc.
+
+Tokens are defined often by regular expressions, which are understood by a lexical analyzer generator such as lex. The lexical analyzer (generated automatically by a tool like lex, or hand-crafted) reads in a stream of characters, identifies the lexemes in the stream, and categorizes them into tokens. This is termed tokenizing. If the lexer finds an invalid token, it will report an error.
+
+Following tokenizing is parsing. From there, the interpreted data may be loaded into data structures for general use, interpretation, or compiling. 
+
