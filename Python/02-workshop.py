@@ -51,6 +51,9 @@ print(sorted_counts)
 sorted_counts = sorted(counts.items(),key=key_fn,reverse=True)
 print(sorted_counts)
 # %%
+# lambda functions
+sorted_counts = sorted(counts.items(),key=lambda x: x[1])
+
 # Extracting the 10  most common words
 [x[0] for x in sorted_counts[:10]]
 # %%

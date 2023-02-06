@@ -8,7 +8,7 @@ import re
 # %%
 with open("text.txt") as f:
     text = f.read()
-+
+
 # %%
 words = text.split()
 print(words[:10])
