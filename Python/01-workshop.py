@@ -24,6 +24,3 @@ for x in words:
 # Look at what you found
 for x in words:
     print(f"{x}: {counts[x]}")
-
-# %%
-# Critique this implementation

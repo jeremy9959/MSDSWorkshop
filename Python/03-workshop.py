@@ -1,10 +1,23 @@
 #%%
+# Regular Expressions
+from collections import Counter
+import re
+
+#%%
 with open("text.txt") as f:
     text = f.read()
-# Regular Expressions
-import re
-# Letters; Numbers; Ranges; +; \w; \W; \b
-# %%
+
+# 
+# Letters, Numbers match themselves
+# + means one or more of the preceeding
+# * means 0 or more of the preceding
+# [] groups things ([A-Z]+ matches a sequence of one or more capital letters);
+#  \w matches "word" characters
+# \W matches non-word characters
+# \b matches boundaries (end or start of string)
+# {5} matches 5 times
+# \s matches whitespace
+# \S matches non-whitespace
 
 #%% 
 astrings = re.findall(r"a\w+",text)
@@ -19,22 +32,20 @@ re.findall(r"\w+",text)
 re.findall(r"\w+",text.lower())
 # %%
 # %%
-from collections import Counter
 
 # %%
-wordlist=re.findall(r"\w+",text.lower())
-# %%
-words=Counter(wordlist)
-# %%
-for w in words:
-    print(f"{w}: {words[w]}")
-# %%
-def tokens(text):
-    words = re.findall(r"\w+",text)
-    counts = Counter(words)
-    return(counts)
+# finditer
+# match objects
+# x a match object: x[0] returns the match; x.span() returns (start, end) of the match
+for x in re.finditer(r"\w+",text):
+    print(x[0])
 
-counts = tokens(text)
-for w in counts:
-    print(f"{w}: {counts[w]}")
+#%%
+words = re.findall(r"\b\w\w+\b",text.lower())
+counts = Counter(words)
+sorted_words = dict(sorted(counts.items(), key=lambda x: x[1], reverse=True))
+
+
+# %%
+sorted_words
 # %%

@@ -1,4 +1,4 @@
-#%% Variations
+#%% Sorting
 # Multiline strings
 text="""
 This is an example of a long,
@@ -7,9 +7,11 @@ entered as a string constant into a Python
 program.
 """
 # %%
-# Sorting 
+from collections import Counter
 words = text.split()
 print(words)
+
+# Sorting 
 sorted_words = sorted(words)
 print(sorted(words))
 # %%
@@ -17,21 +19,8 @@ print(sorted(words))
 sorted_words_rev = sorted(words, reverse=True)
 print(sorted_words_rev)
 # %%
-# The counter class
-from collections import Counter
 counts = Counter(words)
-print(counts)
-# %%
-# keys, values, and items
-print(counts.keys())
 
-# %%
-print(counts.items())
-# %%
-print(counts.values())
-# %%
-#%%
-# Reporting the counts
 for x in counts:
     print(f"{x}: {counts[x]}")
 # %%
@@ -52,10 +41,17 @@ sorted_counts = sorted(counts.items(),key=key_fn,reverse=True)
 print(sorted_counts)
 # %%
 # lambda functions
-sorted_counts = sorted(counts.items(),key=lambda x: x[1])
+sorted_counts = sorted(counts.items(),key=lambda x: x[1],reverse=True)
 
 # Extracting the 10  most common words
 [x[0] for x in sorted_counts[:10]]
 # %%
 counts.most_common(10)
+# %%
+# Building a sorted dictionary
+sorted_dict = dict(sorted_counts)
+sorted_dict = {x[0]:x[1] for x in sorted_counts}
+# %%
+sorted_dict
+
 # %%
