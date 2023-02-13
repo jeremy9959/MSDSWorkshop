@@ -23,7 +23,6 @@ class Vectorizer:
 
     Attributes:
         text: the text being analyzed
-
         counts: a dictionary giving the count
 
     Methods:
