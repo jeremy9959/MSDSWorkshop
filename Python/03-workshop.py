@@ -1,7 +1,7 @@
 #%%
 # Regular Expressions
-from collections import Counter
 import re
+from collections import Counter
 
 #%%
 with open("text.txt") as f:

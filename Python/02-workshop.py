@@ -8,6 +8,7 @@ program.
 """
 # %%
 from collections import Counter
+
 words = text.split()
 print(words)
 
