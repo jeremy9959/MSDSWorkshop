@@ -70,3 +70,28 @@ class Vectorizer:
 
 
 # %%
+X=Vectorizer("this is a string which has the word this in it several times")
+# %%
+X.vocabulary()
+# %%
+X.most_common(3)
+# %%
+X.least_common(2)
+# %%
+X.counts
+# %%
+Y=Vectorizer("another example, with the word is in it repeated as many times as it is.",stop_words=["is"])
+# %%
+Y.vocabulary()
+# %%
+Y.most_common(3)
+# %%
+Y.text
+
+# %%
+X.text
+# %%
+X.counts
+# %%
+X.text
+# %%
